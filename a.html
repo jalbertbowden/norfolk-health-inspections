@@ -1,0 +1,28 @@
+<?php
+$letter = "A";
+$scrapedLink = "http://www.healthspace.com/Clients/VDH/Norfolk/Norolk_Website.nsf/Food-List-ByFirstLetterInName?OpenView&Count=100&RestrictToCategory='.$letter.'";
+
+
+?>
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title><?php echo $letter; ?> &#45; Norfolk Health Inspection Data jQuery/PHP Document Scraper</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<script>
+$("document").ready(function() {
+  $("#scrapedcontent").load("curl-a.php table");	
+});
+</script>
+  </head>
+  <body>
+    <div class="content">
+      <h1>City of Norfolk Food Establishments <?php echo $letter; ?></h1>
+      <div id="scrapedcontent"><img src="http://dev.bowdenweb.com/a/i/anim/loaders/an-circle-2-1.gif" alt="Loading..." /></div>
+      <p><cite><a href="http://www.healthspace.com/Clients/VDH/Norfolk/Norolk_Website.nsf">Norfolk Health District</a></cite></p>
+      <p><b class="block"><?php echo "Content last updated on : ".date("F d, Y g:i:s A T.", getlastmod()); ?></b> via <a href="<?php echo $scrapedLink; ?>"><?php echo $scrapedLink; ?> &#45; Norfolk Health District</a></p>
+    </div>
+  </body>
+</html>
